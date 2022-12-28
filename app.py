@@ -33,8 +33,11 @@ def main() :
         #st.success(st.write('Prediction : {}'.format(result)))
         #st.success(st.write('Confidence : {}%'.format(confidence)))
 
+class_name = ['Bacterial_spot(반점세균병)','Early_blight(겹무늬병)','Late_blight(잎마름역병)','Leaf_Mold(잎곰팡이병)','Septoria_leaf_spot(흰무늬병)','Spider_mites_Two_spotted_spider_mite(점박이응애)',
+'Target_Spot(갈색무늬병)','YellowLeaf_Curl_Virus(황화잎말림바이러스)','mosaic_virus(모자이크병)','healthy(정상)']
+
 def predict_class(image) :
-    with st.spinner('모델을 불러오고 있습니다.'):
+    with st.spinner('모델을 불러오고 있습니다...'):
         classifier_model = keras.models.load_model(r'model1.h5', compile=False)
 
     shape = ((256,256,3))
@@ -44,15 +47,6 @@ def predict_class(image) :
     test_image /= 255.0
     test_image = np.expand_dims(test_image, axis = 0)
 
-    class_name = ['Bacterial_spot(반점세균병)',
-    'Early_blight(겹무늬병)',
-    'Leaf_Mold(잎곰팡이병)',
-    'Septoria_leaf_spot(흰무늬병)',
-    'Spider_mites_Two_spotted_spider_mite(점박이응애)',
-    'Target_Spot(갈색무늬병)',
-    'YellowLeaf_Curl_Virus(황화잎말림바이러스)',
-    'mosaic_virus(모자이크병)',
-    'healthy(정상)']
 
     prediction = model.predict(test_image)
     confidence = round(100 * (np.max(prediction[0])))
