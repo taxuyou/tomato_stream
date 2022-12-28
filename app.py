@@ -47,7 +47,7 @@ def predict_class(image) :
     'Spider_mites_Two_spotted_spider_mite(점박이응애)','Target_Spot(갈색무늬병)','YellowLeaf_Curl_Virus(황화잎말림바이러스)','mosaic_virus(모자이크병)','healthy(정상)']
 
     prediction = model.predict(test_image)
-    confidence = round(100 * (np.max(prediction[0])), 2)
+    confidence = round(100 * (np.max(prediction[0])))
     final_pred = class_name[np.argmax(prediction[0])]
     return final_pred, confidence
 
