@@ -15,7 +15,7 @@ hide_streamlit_style = """
 
 st.markdown(hide_streamlit_style, unsafe_allow_html = True)
 
-st.title('Tomato Leaf Disease Prediction')
+st.title('토마토 병해 예측기')
 
 def main() :
     add_bg_from_url()
@@ -28,7 +28,7 @@ def main() :
         plt.axis('off')
         st.pyplot(figure)
         result, confidence = predict_class(image)
-        string = f'This image likely belongs to {result} with a confidence of {confidence}%'       
+        string = f'등록하신 토마토 잎 사진은 {result} 신뢰도 {confidence}% 입니다.'       
         st.success(string)
         #st.success(st.write('Prediction : {}'.format(result)))
         #st.success(st.write('Confidence : {}%'.format(confidence)))
@@ -63,7 +63,7 @@ def add_bg_from_url():
          <style>
          .stApp {{
           
-             background-image: url("https://media.istockphoto.com/photos/green-leaves-pattern-background-sweet-potato-leaves-nature-dark-green-picture-id1155672947?k=20&m=1155672947&s=170667a&w=0&h=Rbx7C6PzO3sCXdnPsOhEylL4i01k7ekfENUwVXpBB5U=");
+             background-image: url("https://www.cstimes.com/news/photo/202206/503679_406026_4546.png");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -99,7 +99,7 @@ a:hover,  a:active {
 </style>
 
 <div class="footer">
-<p style = "align:center; color:white">Developed with taeksu</p>
+<p style = "align:center; color:white">Developed by taeksu</p>
 </div>
 """
 
