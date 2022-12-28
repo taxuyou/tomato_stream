@@ -56,7 +56,7 @@ def predict_class(image) :
     'healthy(정상)']
 
     prediction = model.predict(test_image)
-    confidence = round(100 * (np.max(prediction[0])), 2)
+    confidence = round(100 * (np.max(prediction[0])))
     final_pred = class_name[np.argmax(prediction)]
     return final_pred, confidence
 
