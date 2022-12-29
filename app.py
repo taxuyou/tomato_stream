@@ -17,57 +17,31 @@ st.markdown(hide_streamlit_style, unsafe_allow_html = True)
 
 st.title('토마토 병해 예측기')
 
-def main() :
-    add_bg_from_url()
-    file_uploaded = st.file_uploader('사진을 선택해주세요...', type = ['jpg','jpeg','png'])
-    if file_uploaded is not None :
-        image = Image.open(file_uploaded)
-        st.write("Uploaded Image.")
-        figure = plt.figure(figsize = (4,4))
-        plt.imshow(image)
-        plt.axis('off')
-        st.pyplot(figure)
-        result, confidence = predict_class(image)
-        string = f'등록하신 토마토 잎 사진은 {result} 신뢰도 {confidence}% 입니다.'       
-        st.success(string)
-        #st.success(st.write('Prediction : {}'.format(result)))
-        #st.success(st.write('Confidence : {}%'.format(confidence)))
 
-class_name = ['Bacterial_spot(반점세균병)','Early_blight(겹무늬병)','Late_blight(잎마름역병)','Leaf_Mold(잎곰팡이병)','Septoria_leaf_spot(흰무늬병)','Spider_mites_Two_spotted_spider_mite(점박이응애)',
-'Target_Spot(갈색무늬병)','YellowLeaf_Curl_Virus(황화잎말림바이러스)','mosaic_virus(모자이크병)','healthy(정상)']
-
-def predict_class(image) :
-    with st.spinner('모델을 불러오고 있습니다...'):
-        classifier_model = keras.models.load_model(r'model1.h5', compile=False)
-
-    shape = ((256,256,3))
-    model = keras.Sequential([hub.KerasLayer(classifier_model, input_shape = shape)])
-    test_image = image.resize((256, 256))
-    test_image = keras.preprocessing.image.img_to_array(test_image)
-    test_image /= 255.0
-    test_image = np.expand_dims(test_image, axis = 0)
-
-
-    prediction = model.predict(test_image)
+upload_file = st.sidebar.file_uploader("Upload Crop Leaf Images", type=["jpg",'jpeg','png'])
+Generate_pred=st.sidebar.button("Predict")
+model=tf.keras.models.load_model('model1.h5')
+def import_n_pred(image_data, model):
+    size = (256,256)
+    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
+    img = np.asarray(image)
+    reshape=img[np.newaxis,...]
+    prediction = model.predict(reshape)
+    return prediction
     
-    final_pred = class_name[np.argmax(prediction[0])]
-    confidence = round(100 * (np.max(prediction[0])))
-    return final_pred, confidence
+if upload_file is None:
+    st.text("사진을 선택해주세요.")
+else:
+    image=Image.open(upload_file)
+    with st.expander('Crop Image', expanded = True):
+        st.image(image, use_column_width=True)
+    prediction=import_n_pred(image, model)
+    class_labels= ['Bacterial_spot(반점세균병)','Early_blight(겹무늬병)','Late_blight(잎마름역병)','Leaf_Mold(잎곰팡이병)','Septoria_leaf_spot(흰무늬병)','Spider_mites_Two_spotted_spider_mite(점박이응애)',
+'Target_Spot(갈색무늬병)','YellowLeaf_Curl_Virus(황화잎말림바이러스)','mosaic_virus(모자이크병)','healthy(정상)']
+    st.title("{}".format(class_labels[np.argmax(prediction)]))
+st.caption("Made by taeksu KIM ")
 
-def add_bg_from_url():
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{
-          
-             background-image: url("http://cdn.itdaily.kr/news/photo/202103/202318_202307_3426.jpg");
-             background-attachment: fixed;
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
+
 
 footer = """
 <style>
