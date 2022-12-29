@@ -14,10 +14,8 @@ hide_streamlit_style = """
 
 st.markdown(hide_streamlit_style, unsafe_allow_html = True)
 
-st.write("""
-          # 토마토 병해충 판별기
-          """
-          )
+st.title('토마토 병해 예측기')
+
 upload_file = st.sidebar.file_uploader("토마토 잎을 올려주세요", type=["jpg","jpeg","png","webP"])
 Generate_pred=st.sidebar.button("예측하기")
 model=tf.keras.models.load_model('tomatos.h5')
@@ -55,17 +53,17 @@ else:
     elif np.argmax(prediction)==2:
         st.header('\n처방:\n- 환기를 철저히 하여 시설내가 과습하지 않도록 한다.\n- 잦은 물주기를 하지 않고 물빠짐을 좋게 한다.\n- 항상 포장을 청결히 하고 병든 잎이나 줄기는 조기에 제거하여 불에 태우거나 땅속 깊이 묻는다.\n- 등록약제를 이용하여 방제한다.')
     elif np.argmax(prediction)==3:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n- 병든 잎을 신속히 제거한다.\n- 90%이상의 상대습도가 유지되지 않도록 한다.\n- 통풍이 잘되게 하고 밀식하지 않는다.\n- 건전한 종자를 사용하고, 깨끗한 자재를 사용한다.\n- 질소질 비료의 과용을 피한다.')
     elif np.argmax(prediction)==4:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n발병초기 등록약제를 살포하여 병의 확산을 막는다.')
     elif np.argmax(prediction)==5:
         st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
     elif np.argmax(prediction)==6:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n- 관수 및 배수를 철저히 하고 균형 있는 시비를 한다.\n- 전정을 통해 수관내 통풍과 통광을 원활히 하고, 병에 걸린 낙엽을 모아 태우거나 땅 속 깊이 묻어 전염원을 제거한다.\n- 약제에 의한 방제는 6월 중순경(발병초)부터 8월까지 가능한 강우 전에 정기적으로 적용약제를 수관내부까지 골고루 묻도록 충분량을 살포한다.\n- 과수원에서 초기병반이 보이는 즉시 약제를 살포한다.\n이 병은 한번 발생하면 이후 방제하기가 매우 곤란한 병이므로 예방에 초점을 맞추어 방제한다.')
     elif np.argmax(prediction)==7:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n병을 전염시키는 해충의 세대 기간이 짧아 연간 발생횟수가 많고 증식률이 높으므로 발생초기에 방제하고, 육묘 시 철저한 관리로 병의 확산 예방 한다.')
     elif np.argmax(prediction)==8:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n○ CMV 방제 - 진딧물이 전염시키므로 진딧물의 기주를 제거한다.\n- 등록된 살충제를 살포하여 진딧물을 방제한다 - 전 작물의 잔재물을 제거하고, 작물의 파종시기 및 올멱심기 시기를 조절한다.\n- 바이러스의 잠재적인 보존원인 잡초나 중간기주를 제거한다.\n- 전염원이 되는 병든 식물은 발견 즉시 제거한다.\n○ PepMoV 방제 - 복숭아혹진딧물의 기주식물인 가지과, 배추과 등을 주위에 재배하지 않는다.\n- 자연 발병 기주인 담배, 고추, 감자 등을 연속 재배하지 말아야 한다.\n- 병든 식물체는 일찍 제거한다.\n- 등록된 살충제를 살포하여 진딧물을 방제한다.\n- 병에 잘 걸리지 않는 품종을 재배한다.\n○ TMV 및 ToMV 방제 - 고추와 토마토를 연속재배하지 말아야 한다.\n- 종자 소독을 철저히 한 후 파종한다.\n- 오염 토양, 옷, 손, 농기구들의 오염물을 제거한다.\n- 옮겨심기, 눈따기, 수확 등 작업 시에 전염이 되므로 주의하여야 하며 작업 전에는 반드시 손을 닦아야 한다 - 전염원으로부터 격리된 지역에서 재배한다.\n- 전염원이 되는 병든식물은 발견 즉시 제거한다.')
     elif np.argmax(prediction)==9:
         st.header('\n정상입니다.')    
 
