@@ -9,7 +9,7 @@ st.write("""
           )
 upload_file = st.sidebar.file_uploader("Upload Crop Leaf Images", type=["jpg","jpeg","png","webP"])
 Generate_pred=st.sidebar.button("Predict")
-model=tf.keras.models.load_model('Grape_Classifier.h5')
+model=tf.keras.models.load_model('model1.h5')
 def import_n_pred(image_data, model):
     size = (256,256)
     image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
