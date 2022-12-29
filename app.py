@@ -27,8 +27,8 @@ def import_n_pred(image_data, model):
     img = np.asarray(image)
     reshape=img[np.newaxis,...]
     prediction = model.predict(reshape)
-    confidence = round(100 * (np.max(prediction[0])), 2)
-    return prediction, confidence
+    #confidence = round(100 * (np.max(prediction[0])), 2)
+    return prediction#,confidence
     
 if upload_file is None:
     st.text("토마토 잎을 올려주세요.")
