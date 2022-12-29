@@ -58,7 +58,7 @@ else:
     elif np.argmax(prediction)==3:
         st.header('\nPlants are healthy')
 
- def add_bg_from_url():
+def add_bg_from_url():
     st.markdown(
          f"""
          <style>
