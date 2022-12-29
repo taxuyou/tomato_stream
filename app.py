@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("http://cdn.itdaily.kr/news/photo/202103/202318_202307_3426.jpg");
+             background-image: url("https://t1.daumcdn.net/cfile/blog/1539C94F4D9377DF08");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -25,8 +25,7 @@ def add_bg_from_url():
 
 add_bg_from_url() 
 
-upload_file = st.file_uploader("토마토 잎을 올려주세요", type=["jpg","jpeg","png","webP"])
-Generate_pred=st.button("예측하기")
+upload_file = st.sidebar.file_uploader("토마토 잎을 올려주세요", type=["jpg","jpeg","png","webP"])
 model=tf.keras.models.load_model('tomatos.h5')
 
 def import_n_pred(image_data, model):
@@ -38,7 +37,7 @@ def import_n_pred(image_data, model):
     return prediction
     
 if upload_file is None:
-    st.text("토마토 잎을 올려주세요.")
+    st.text("진단결과.")
 else:
     image=Image.open(upload_file)
     with st.expander('토마토 잎 이미지', expanded = True):
