@@ -20,7 +20,6 @@ upload_file = st.file_uploader("토마토 잎을 올려주세요", type=["jpg","
 Generate_pred=st.button("예측하기")
 model=tf.keras.models.load_model('tomatos.h5')
 def import_n_pred(image_data, model):
-    add_bg_from_url()
     size = (256,256)
     image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
     img = np.asarray(image)
