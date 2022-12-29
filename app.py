@@ -3,18 +3,27 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps
 
+st.markdown('<h1 style="color:black;">토마토 병해 예측기</h1>', unsafe_allow_html=True)
+st.markdown('<h2 style="color:gray;">The image classification model classifies image into following categories:</h2>', unsafe_allow_html=True)
+st.markdown('<h3 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
 
-hide_streamlit_style = """
+# background image to streamlit
 
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            </style>
-            """
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("http://cdn.itdaily.kr/news/photo/202103/202318_202307_3426.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
-st.markdown(hide_streamlit_style, unsafe_allow_html = True)
-
-st.title('토마토 병해 예측기')
+add_bg_from_url() 
 
 upload_file = st.file_uploader("토마토 잎을 올려주세요", type=["jpg","jpeg","png","webP"])
 Generate_pred=st.button("예측하기")
@@ -48,7 +57,7 @@ else:
     '정상healthy(정상)']
   
     st.title("{}".format(class_labels[np.argmax(prediction)]))
-    st.title("신뢰도{}%".format(confidence))
+    st.title("신뢰도: {}%".format(confidence))
     if np.argmax(prediction)==0:
         st.header('\n처방:\n종자 전염이 주요한 제 1차 전염원이기 때문에 건전 종자를 사용하는 것이 아주 중요하다. 종자 생산자는 채종포에서 발병을 철저히 막을 필요가 있다. 특히, 발병한 과실로 부터는 채종을 금한다. 시판종자는 종자소독(유효염소4%, 20배액에 20분간 침적)을 철저히 하여 물로 충분히 씻어낸다. 시설과 노지에서도 발병하지만 시설 내에서 발병을 좌우하는 것은 습도 특히, 물방울의 유무에 있다. 아침과 저녁 저온으로 하우스 천장으로 부터 물방울이 떨어져 이들이 결정적으로 발병을 촉진하는 요인이 되었다. 따라서 발병을 예방하기 위해서는 겨울철 하우스에는 난방과 환기를 충분히 하는 것이 최고의 예방책이 된다. 적용약제로는 동수화제, 쿠퍼수화제, 델란 K 수화제 등을 수확 10일전까지 3∼5회살포하여 방제한다.')
     elif np.argmax(prediction)==1:
@@ -70,16 +79,7 @@ else:
     elif np.argmax(prediction)==9:
         st.header('\n정상입니다.')    
 
-page_bg_img = '''
-<style>
-body {
-background-image: url("http://cdn.itdaily.kr/news/photo/202103/202318_202307_3426.jpg");
-background-size: cover;
-}
-</style>
-'''
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 footer = """
