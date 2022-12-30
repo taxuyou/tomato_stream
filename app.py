@@ -54,9 +54,10 @@ else:
     '황화잎말림바이러스(YellowLeaf Curl Virus)',
     '모자이크병(mosaic virus)',
     '정상healthy(정상)']
-    
+
     st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('진단결과: ')
-    st.title('예측:'"{}"',''신뢰도'" {}%".format((class_labels[np.argmax(prediction)]),confidence))
+    st.title('예측:'"{}".format((class_labels[np.argmax(prediction)])))
+    st.title('신뢰도' "{}%".format(confidence))
     #st.title("신뢰도: {}%".format(confidence))
     
 
