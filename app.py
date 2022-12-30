@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://nordiclifescience.org/wp-content/public_html/2021/01/iStock-1195003888-900x675.jpg");
+             background-image: url("https://images.squarespace-cdn.com/content/v1/5b048119f2e6b103db959419/1614538675097-T0IOBFVK92VUVWGTZTBZ/Sports+Performance+Analysis+-+AI+in+Sports.jpg?format=1500w");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -81,9 +81,9 @@ else:
         st.header('\n정상입니다.')    
 
 st.markdown('<h4 style="color:white;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
-st.markdown('<h5 style="color:white;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),\n잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),\n갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
-
-
+st.markdown('<h5 style="color:white;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight)</h3>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:white;"> 잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite)</h2>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:white;"> 갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h2>', unsafe_allow_html=True)
 
 footer = """
 <style>
