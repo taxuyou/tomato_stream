@@ -3,9 +3,9 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps
 
-st.markdown('<h1 style="color:black;">토마토 병해 예측기</h1>', unsafe_allow_html=True)
-st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
-st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
+st.markdown('<h1 style="color:black;">토마토 병해충 예측기</h1>', unsafe_allow_html=True)
+#st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
+#st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
 
 # background image to streamlit
 
@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://t1.daumcdn.net/cfile/blog/1539C94F4D9377DF08");
+             background-image: url("https://img.freepik.com/free-photo/abstract-background-with-low-poly-design_1048-8478.jpg?w=996&t=st=1672364807~exp=1672365407~hmac=6f2ab4616122c896a7ffc40ec50c72f1ef7b8ad3fda115778c7cae90f7274482");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -25,7 +25,7 @@ def add_bg_from_url():
 
 add_bg_from_url() 
 
-upload_file = st.sidebar.file_uploader("토마토 잎을 올려주세요", type=["jpg","jpeg","png","webP"])
+upload_file = st.sidebar.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
 model=tf.keras.models.load_model('tomatos.h5')
 
 def import_n_pred(image_data, model):
@@ -68,7 +68,7 @@ else:
     elif np.argmax(prediction)==4:
         st.header('\n처방:\n발병초기 등록약제를 살포하여 병의 확산을 막는다.')
     elif np.argmax(prediction)==5:
-        st.header('\n처방:\nSpraying of the grapevines at 3-4 leaf stage with fungicides like Bordeaux mixture @ 0.8% or Copper Oxychloride @ 0.25% or Carbendazim @ 0.1% are effective against this disease.')
+        st.header('\n처방:\n작물의 하위 잎에서 발생이 시작하여 새잎으로 확산된다.\n점박이응애 발생지점에 물을 뿌려주면 발생이 억제된다.\n작물재배 후에 작물 잔재물을 깨끗이 청소하여 발생원을 없애야 한다.\n발생초기에 약제를 살포하는 것이 방제효과가 높다.\n잎응애는 약제저항성이 쉽게 발달하므로 같은 계통의 약제를 계속 사용하지 말아야 한다.\n국내에 상업적으로 이용되는 칠레이리응애, 사막이리응애, 긴털이리응애, 꼬마무당벌레 등이 있다.\n점박이응애 밀도가 높으면 잔류기간이 짧은 응애약제를 살포한 후 천적을 방사한다.')
     elif np.argmax(prediction)==6:
         st.header('\n처방:\n- 관수 및 배수를 철저히 하고 균형 있는 시비를 한다.\n- 전정을 통해 수관내 통풍과 통광을 원활히 하고, 병에 걸린 낙엽을 모아 태우거나 땅 속 깊이 묻어 전염원을 제거한다.\n- 약제에 의한 방제는 6월 중순경(발병초)부터 8월까지 가능한 강우 전에 정기적으로 적용약제를 수관내부까지 골고루 묻도록 충분량을 살포한다.\n- 과수원에서 초기병반이 보이는 즉시 약제를 살포한다.\n이 병은 한번 발생하면 이후 방제하기가 매우 곤란한 병이므로 예방에 초점을 맞추어 방제한다.')
     elif np.argmax(prediction)==7:
@@ -78,6 +78,8 @@ else:
     elif np.argmax(prediction)==9:
         st.header('\n정상입니다.')    
 
+st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
+st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),\n잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),\n갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
 
 
 
