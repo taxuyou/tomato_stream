@@ -56,11 +56,10 @@ else:
     '정상healthy(정상)']
     
     st.title('진단결과: ')
+    st.title('예측:'"{}"',''신뢰도'"{}".format((class_labels[np.argmax(prediction)]),confidence))
+    #st.title("신뢰도: {}%".format(confidence))
     st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True)
-    st.title("{}".format(class_labels[np.argmax(prediction)]))
-    st.title("신뢰도: {}%".format(confidence))
 
-    st.markdown('<style>h2{color: black;}</style>', unsafe_allow_html=True)
     
     if np.argmax(prediction)==0:
         st.header('\n처방:\n종자 전염이 주요한 제 1차 전염원이기 때문에 건전 종자를 사용하는 것이 아주 중요하다.\n 종자 생산자는 채종포에서 발병을 철저히 막을 필요가 있다.\n 특히, 발병한 과실로 부터는 채종을 금한다.\n 시판종자는 종자소독(유효염소4%, 20배액에 20분간 침적)을 철저히 하여 물로 충분히 씻어낸다.\n 시설과 노지에서도 발병하지만 시설 내에서 발병을 좌우하는 것은 습도 특히, 물방울의 유무에 있다.\n 아침과 저녁 저온으로 하우스 천장으로 부터 물방울이 떨어져 이들이 결정적으로 발병을 촉진하는 요인이 되었다.\n 따라서 발병을 예방하기 위해서는 겨울철 하우스에는 난방과 환기를 충분히 하는 것이 최고의 예방책이 된다.\n 적용약제로는 동수화제, 쿠퍼수화제, 델란 K 수화제 등을 수확 10일전까지 3∼5회살포하여 방제한다.')
@@ -82,6 +81,8 @@ else:
         st.header('\n처방:\n○ CMV 방제 - 진딧물이 전염시키므로 진딧물의 기주를 제거한다.\n- 등록된 살충제를 살포하여 진딧물을 방제한다 - 전 작물의 잔재물을 제거하고, 작물의 파종시기 및 올멱심기 시기를 조절한다.\n- 바이러스의 잠재적인 보존원인 잡초나 중간기주를 제거한다.\n- 전염원이 되는 병든 식물은 발견 즉시 제거한다.\n○ PepMoV 방제 - 복숭아혹진딧물의 기주식물인 가지과, 배추과 등을 주위에 재배하지 않는다.\n- 자연 발병 기주인 담배, 고추, 감자 등을 연속 재배하지 말아야 한다.\n- 병든 식물체는 일찍 제거한다.\n- 등록된 살충제를 살포하여 진딧물을 방제한다.\n- 병에 잘 걸리지 않는 품종을 재배한다.\n○ TMV 및 ToMV 방제 - 고추와 토마토를 연속재배하지 말아야 한다.\n- 종자 소독을 철저히 한 후 파종한다.\n- 오염 토양, 옷, 손, 농기구들의 오염물을 제거한다.\n- 옮겨심기, 눈따기, 수확 등 작업 시에 전염이 되므로 주의하여야 하며 작업 전에는 반드시 손을 닦아야 한다 - 전염원으로부터 격리된 지역에서 재배한다.\n- 전염원이 되는 병든식물은 발견 즉시 제거한다.')
     elif np.argmax(prediction)==9:
         st.header('\n정상입니다.')    
+    st.markdown('<style>h4{color: black;}</style>', unsafe_allow_html=True)
+
 
 st.markdown('<h4 style="color:white;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
 st.markdown('<h4 style="color:white;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight)</h2>', unsafe_allow_html=True)
