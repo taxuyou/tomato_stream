@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://previews.123rf.com/images/ingara/ingara1911/ingara191100903/134144441-%EB%B9%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%88%AB%EC%9E%90-%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4-%EB%B0%B0%EA%B2%BD-%EC%B6%94%EC%83%81-%EA%B7%B8%EB%9E%98%ED%94%BD-%EB%B0%94%ED%83%95-%ED%99%94%EB%A9%B4%EC%9E%85%EB%8B%88%EB%8B%A4-%EA%B8%B0%EA%B3%84-%ED%95%99%EC%8A%B5-1%EA%B3%BC-%EC%88%AB%EC%9E%90-%EA%B8%B0%EC%88%A0-%EB%B0%B0%EA%B2%BD%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%B6%94%EC%83%81-%EB%AF%B8%EB%9E%98-%EA%B0%9C%EB%85%90%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%9D%B4%EC%A7%84%EC%88%98-%EC%8A%A4%ED%8A%B8%EB%A6%BC-.jpg");
+             background-image: url("https://images.wallpaperscraft.com/image/single/tomato_twig_vegetable_111455_1280x720.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
