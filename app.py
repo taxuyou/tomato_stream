@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-ai-artificial-intelligence-technology-future-25d-background-picture-image_963202.jpg");
+             background-image: url("https://png.pngtree.com/background/20210715/original/pngtree-3d-grid-cyber-technology-ai-tech-wire-network-futuristic-wireframe-picture-image_1264146.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
