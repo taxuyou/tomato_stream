@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220216/pngtree-purple-bright-technology-background-ai-vector-material-download-image_973922.jpg");
+             background-image: url("https://images.wallpaperscraft.com/image/single/tomatoes_branch_drops_harvest_112004_1280x720.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
