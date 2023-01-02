@@ -3,7 +3,7 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps
 
-st.markdown('<h1 style="color:white;">토마토 병해충 예측기</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="color:black;">토마토 병해충 예측</h1>', unsafe_allow_html=True)
 #st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
 #st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
 
@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://images.squarespace-cdn.com/content/v1/5b048119f2e6b103db959419/1614538675097-T0IOBFVK92VUVWGTZTBZ/Sports+Performance+Analysis+-+AI+in+Sports.jpg?format=1500w");
+             background-image: url("https://png.pngtree.com/background/20210709/original/pngtree-ai-artificial-intelligence-technology-future-25d-background-picture-image_963202.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -58,8 +58,6 @@ else:
     st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('진단결과: ')
     st.title('예측:'"{}".format((class_labels[np.argmax(prediction)])))
     st.title('신뢰도' "{}%".format(confidence))
-    #st.title("신뢰도: {}%".format(confidence))
-    
 
     
     if np.argmax(prediction)==0:
