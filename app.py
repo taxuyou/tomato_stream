@@ -56,8 +56,8 @@ else:
     '정상healthy(정상)']
 
     
-    st.title('예측:'"{}".format((class_labels[np.argmax(prediction)])))
-    st.title('신뢰도' "{}%".format(confidence))
+    st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('예측:'"{}".format((class_labels[np.argmax(prediction)])))
+    st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('신뢰도' "{}%".format(confidence))
     st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('진단결과: ')
     
     if np.argmax(prediction)==0:
