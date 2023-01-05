@@ -14,7 +14,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://images.wallpaperscraft.com/image/single/tomatoes_branch_drops_harvest_112004_1280x720.jpg");
+             background-image: url("https://isorepublic.com/wp-content/uploads/2018/11/0069-1-1100x734.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -25,7 +25,7 @@ def add_bg_from_url():
 
 add_bg_from_url() 
 
-upload_file = st.sidebar.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
+upload_file = st.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
 model=tf.keras.models.load_model('tomatos.h5')
 
 def import_n_pred(image_data, model):
