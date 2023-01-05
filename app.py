@@ -83,10 +83,10 @@ else:
     st.markdown('<style>h4{color: black;}</style>', unsafe_allow_html=True)
 
 
-st.markdown('<h4 style="color:white;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
-st.markdown('<h4 style="color:white;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight)</h2>', unsafe_allow_html=True)
-st.markdown('<h4 style="color:white;"> 잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite)</h2>', unsafe_allow_html=True)
-st.markdown('<h4 style="color:white;"> 갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h2>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:black;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:black;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight)</h2>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:black;"> 잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite)</h2>', unsafe_allow_html=True)
+st.markdown('<h4 style="color:black;"> 갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h2>', unsafe_allow_html=True)
 
 footer = """
 <style>
