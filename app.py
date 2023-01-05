@@ -26,7 +26,7 @@ st.markdown('<h1 style="color:black;">토마토 병해충 예측</h1>', unsafe_a
 
 
 
-upload_file = st.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
+upload_file = st.sidebar.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
 model=tf.keras.models.load_model('tomatos.h5')
 
 def import_n_pred(image_data, model):
