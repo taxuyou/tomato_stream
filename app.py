@@ -3,12 +3,6 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps
 
-st.markdown('<h1 style="color:black;">토마토 병해충 예측</h1>', unsafe_allow_html=True)
-#st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
-#st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
-
-# background image to streamlit
-
 def add_bg_from_url():
     st.markdown(
          f"""
@@ -22,8 +16,15 @@ def add_bg_from_url():
          """,
          unsafe_allow_html=True
      )
-
 add_bg_from_url() 
+
+st.markdown('<h1 style="color:black;">토마토 병해충 예측</h1>', unsafe_allow_html=True)
+#st.markdown('<h4 style="color:gray;"> 이 분류 모델은 다음 범주로 분류합니다.:</h2>', unsafe_allow_html=True)
+#st.markdown('<h5 style="color:gray;"> 반점세균병(Bacterial spot),겹무늬병(Early blight),잎마름역병(Late blight),잎곰팡이병(Leaf Mold),흰무늬병(Septoria_leaf_spot),점박이응애(Spider mites Two spotted spider mite),갈색무늬병(Target Spot),황화잎말림바이러스(YellowLeaf Curl Virus),모자이크병(mosaic virus),정상healthy(정상)</h3>', unsafe_allow_html=True)
+
+# background image to streamlit
+
+
 
 upload_file = st.file_uploader("토마토 잎의 사진을 올려주세요 !", type=["jpg","jpeg","png","webP"])
 model=tf.keras.models.load_model('tomatos.h5')
@@ -40,7 +41,7 @@ if upload_file is None:
     st.text("결과창")
 else:
     image=Image.open(upload_file)
-    with st.expander('토마토 잎 이미지', expanded = True):
+    with st.expander('업로드한 이미지', expanded = True):
          st.image(image, use_column_width=True)
     prediction=import_n_pred(image, model)
     confidence = round(100 * (np.max(prediction[0])), 2)
