@@ -36,25 +36,28 @@ def import_n_pred(image_data, model):
     reshape=img[np.newaxis,...]
     prediction = model.predict(reshape)
     return prediction
-    
+
+
+
 if upload_file is None:
     st.text("결과창")
 else:
     image=Image.open(upload_file)
-    with st.expander('업로드한 이미지', expanded = True):
+    with st.expander('업로드 이미지', expanded = True):
          st.image(image, use_column_width=True)
     prediction=import_n_pred(image, model)
     confidence = round(100 * (np.max(prediction[0])), 2)
-    class_labels=['반점세균병(Bacterial spot)',
-    '겹무늬병(Early blight)',
-    '잎마름역병(Late blight)',
-    '잎곰팡이병(Leaf Mold)',
-    '흰무늬병(Septoria_leaf_spot)',
-    '점박이응애(Spider mites Two spotted spider mite)',
-    '갈색무늬병(Target Spot)',
-    '황화잎말림바이러스(YellowLeaf Curl Virus)',
-    '모자이크병(mosaic virus)',
-    '정상healthy(정상)']
+    class_labels=[
+        '반점세균병(Bacterial spot)',
+        '겹무늬병(Early blight)',
+        '잎마름역병(Late blight)',
+        '잎곰팡이병(Leaf Mold)',
+        '흰무늬병(Septoria_leaf_spot)',
+        '점박이응애(Spider mites Two spotted spider mite)',
+        '갈색무늬병(Target Spot)',
+        '황화잎말림바이러스(YellowLeaf Curl Virus)',
+        '모자이크병(mosaic virus)',
+        '정상healthy(정상)']
 
     st.markdown('<style>h3{color: red;}</style>', unsafe_allow_html=True).title('진단결과: ')
     st.title('예측:'"{}".format((class_labels[np.argmax(prediction)])))
@@ -120,4 +123,4 @@ a:hover,  a:active {
 </div>
 """
 
-st.markdown(footer, unsafe_allow_html = True)     
+st.markdown(footer, unsafe_allow_html = True)
